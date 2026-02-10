@@ -12,6 +12,7 @@
     "gatsby-plugin-sharp": "^5.16.0",
     "gatsby-source-contentful": "^8.17.0",
     "gatsby-source-filesystem": "^5.16.0",
+    "gatsby-transformer-remark": "^6.16.0",
     "gatsby-transformer-sharp": "^5.16.0",
     "install": "^0.13.0",
     "joi": "^18.0.2",
