@@ -7,10 +7,22 @@
 
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import styled from "styled-components"
+import styled, { ThemeProvider} from "styled-components"
 
 import Header from "./header"
 import "./layout.css"
+import { Gray } from "./themes/Gray"
+
+const Content = styled.div`
+  margin: 0 auto;
+  max-width: var(--size-content);
+  padding: var()(--size-gutter);
+`  
+
+const Footer = styled.footer`
+  margin-top: var(--space-5);
+  font-size: var(--font-sm);
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,8 +36,8 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <ThemeProvider theme={Gray}>
+        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Content>
         <main>{children}</main>
         <Footer>
@@ -34,7 +46,7 @@ const Layout = ({ children }) => {
           <a href="https://www.gatsbyjs.com">Gatsby</a>
         </Footer>
       </Content>
-    </>
+      </ThemeProvider>
   )
 }
 
